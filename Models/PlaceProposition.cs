@@ -7,6 +7,10 @@ namespace Play2GetherAPI.Models
     [DataContract]
     public class PlaceProposition
     {
+        public PlaceProposition()
+        {
+            Checked = false;
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [DataMember]
@@ -16,13 +20,11 @@ namespace Play2GetherAPI.Models
         [DataMember]
         public float Longitude { get; set; }
         [DataMember]
+        public string Name { get; set; }
+        [DataMember]
         public string ImageUrl { get; set; }
         [DataMember]
         public bool Checked { get; set; }
-
-        public PlaceProposition()
-        {
-            Checked = false;
-        }
+        
     }
 }

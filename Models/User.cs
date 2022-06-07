@@ -10,8 +10,11 @@ namespace Play2GetherAPI.Models
     {
         public User()
         {
-            IsActive = false;
             Role = "User";
+            UserEvents = new List<UserEvent>();
+            Events = new List<Event>();
+            Messages = new List<Message>();
+            Premiums = new List<Premium>();
         }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -28,10 +31,14 @@ namespace Play2GetherAPI.Models
         [DataMember]
         public string Role { get; set; }
         [DataMember]
+        [NotMapped]
+        public bool isPremium { get; set; }
+        [DataMember]
         public bool IsActive { get; set; }
         public virtual Login Login { get; set; }
         public virtual ICollection<UserEvent> UserEvents { get; set; }
         public virtual ICollection<Event> Events { get; set; }
         public virtual ICollection<Message> Messages { get; set; }
+        public virtual ICollection<Premium> Premiums { get; set; }
     }
 }

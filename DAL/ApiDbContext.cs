@@ -8,7 +8,7 @@ namespace Play2GetherAPI.DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-            .UseSqlite("Data Source = Database\\Play2GetherApiDatabase.db;");
+            .UseSqlite("Data Source = Database/Play2GetherApiDatabase.db;");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -26,5 +26,9 @@ namespace Play2GetherAPI.DAL
         public virtual DbSet<Place> Places { get; set; }
         public virtual DbSet<PlaceProposition> PlacePropositions { get; set; }
         public virtual DbSet<UserEvent> UserEvents { get; set; }
+        public virtual DbSet<Premium> Premiums { get; set; }
+        public virtual DbSet<PlaceActivitie> PlaceActivities { get; set; }
+        public virtual DbSet<EmailToken> EmailTokens { get; set; }
+
     }
 }

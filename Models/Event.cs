@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Internal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,13 +10,18 @@ namespace Play2GetherAPI.Models
     [DataContract]
     public class Event
     {
+        public Event()
+        {
+            UsersEvents = new List<UserEvent>();
+            Messages = new List<Message>();
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [DataMember]
         public long EventId { get; set; }
         [DataMember]
         [Column(TypeName = "Date")]
-        public DateTime dateTime { get; set; }
+        public DateTime TimeDate { get; set; }
         [DataMember]
         public uint Vacancies { get; set; }
         [DataMember]
